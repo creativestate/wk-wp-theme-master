@@ -1,0 +1,20 @@
+// --------------------
+// Icons
+// --------------------
+@font-face
+{
+	font-family : 'wolters-kluwer-corporate';
+	src: url('../fonts/wk-icons/font/wolters-kluwer-corporate.eot');
+	src: url('../fonts/wk-icons/font/wolters-kluwer-corporate.eot?#iefix') format('embedded-opentype'),
+		 url('../fonts/wk-icons/font/wolters-kluwer-corporate.woff') format('woff'),
+		 url('../fonts/wk-icons/font/wolters-kluwer-corporate.ttf') format('truetype');
+	font-style  : normal;
+	font-weight : 400;
+}
+
+.wk-corporate-icon {
+	&:before{
+		@extend .#{$prefix}type-corporate-icon-normal;
+		content: '';
+	}
+}

@@ -1,0 +1,83 @@
+// --------------------
+// Capabilities
+// --------------------
+.#{$prefix}capabilities {
+	@extend .#{$prefix}background-light;
+	display: block;
+	padding: 0;
+	margin: 0 0 48px 0;
+	cursor: default;
+
+	>div {
+		max-width: $max-width;
+		margin: 0 auto;
+		padding: 0;
+	}
+
+	.items {
+		text-align: center;
+		font-size: 0;
+		padding: 0 0 16px 0;
+
+		@include respond(tablet-landscape) {
+			padding: 0 64px 16px 64px;
+		}
+
+		&.count-3 {
+			@include respond(tablet-landscape) {
+				padding: 0 0 16px 0;
+			}
+
+			.item {
+				@include respond(tablet-landscape) {
+					width: (100% / 3);
+				}
+			}
+		}
+
+		.item {
+			@extend .clear-fix;
+			padding: 0;
+			margin: 0;
+			box-sizing: border-box;
+			padding: 16px 48px;
+			text-align: left;
+
+			@include respond(tablet-landscape) {
+				display: inline-block;
+				vertical-align: top;
+				width: 50%;
+				margin: 0;
+				padding: 32px 24px 16px 24px;
+			}
+
+			.icon {
+				@extend .#{$prefix}color-primary;
+				float: left;
+				width: 48px;
+				height: 48px;
+				margin: 0;
+				font-size: 48px;
+				line-height: 48px;
+				text-align: center;
+				box-sizing: border-box;
+			}
+
+			h2 {
+				display: block;
+				@extend .#{$prefix}type-primary-header;
+				@extend .#{$prefix}color-primary-dark;
+				padding: 0 0 0 80px;
+				margin: 0;
+				box-sizing: border-box;
+			}
+
+			p {
+				@extend .#{$prefix}type-primary-paragraph;
+				@extend .#{$prefix}color-dark-medium;
+				padding: 12px 32px 0 80px;
+				margin: 0;
+			}
+		}
+	}
+}

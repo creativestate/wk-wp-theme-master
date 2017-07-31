@@ -1,0 +1,271 @@
+// --------------------
+// Demo
+// --------------------
+.#{$prefix}content-text {
+	@extend .#{$prefix}background-light;
+	display: block;
+	padding: ($gap-size * 3) 15px;
+	margin: 0 0 48px 0;
+	position: relative;
+	z-index: 1;
+	cursor: default;
+
+	.panel-grid:last-child .panel-grid-cell:last-child .so-panel:last-child & {
+		margin-bottom: 0px;
+	}
+
+	> div {
+		@extend .clear-fix;
+		position: relative;
+		padding: 0;
+		box-sizing: border-box;
+
+		.panel-grid-cell:first-child & {
+			@include respond(tablet-landscape) {
+				max-width: $max-width / 2;
+				margin-left: auto;
+			}
+		}
+
+		.panel-grid-cell:last-child & {
+			@include respond(tablet-landscape) {
+				max-width: $max-width / 2;
+				margin-right: auto;
+			}
+		}
+
+		.panel-grid-cell .size_75 & {
+			@include respond(tablet-landscape) {
+				max-width: $max-width * .75;
+			}
+		}
+
+		.panel-grid-cell:only-child & {
+			max-width: $max-width;
+			margin: 0 auto;
+		}
+	}
+
+	.content {
+		padding: 0 0 ($gap-size * 2) 0;
+
+		@include respond(tablet-landscape) {
+			float: left;
+			width: calc(100% - 440px);
+			padding: 0;
+		} 
+	}
+
+	.author {
+		@extend .#{$prefix}background-primary-dark;
+		@extend .#{$prefix}color-light;
+		padding: ($gap-size * 1.5) ($gap-size * 2);
+
+		@include respond(tablet-landscape) {
+			float: right;
+			width: 380px;
+		} 
+
+		h1 {
+			@extend .#{$prefix}type-primary-header;
+			color: inherit;
+			font-weight: 500;
+			margin: 0 0 ($gap-size * .75) 0;
+		}
+
+		h2 {
+			@extend .#{$prefix}type-primary-paragraph;
+			color: inherit;
+			font-weight: 500;
+			margin: 0 0 ($gap-size * .75) 0;
+			padding: ($gap-size * .75) 0;
+		}
+
+		img {
+			margin: 0 20px 30px 0;
+			float: left;
+			max-width: 64px;
+			height: auto;
+		}
+
+		p, a {
+			@extend .#{$prefix}type-primary-paragraph;
+			font-weight: 500;
+			color: inherit;
+			clear: both;
+			margin: 0;
+			padding: 0;
+		}
+
+		a {
+			line-height: 32px;
+			vertical-align: top;
+
+			&:before{
+				font-size: 35px;
+				line-height: 32px;
+				content: "\203A";
+				font-weight: 400;
+				display: inline-block;
+				padding: 0 5px 0 0;
+				margin-top: -2px;
+				vertical-align: top;
+			}
+
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+
+	.title {
+		@extend .#{$prefix}type-secondary-title;
+		@extend .#{$prefix}color-primary;
+		padding: 0 0 ($gap-size * 1.5) 0;
+		margin: 0;
+
+		@include respond(tablet-landscape) {
+		}
+
+		p {
+			font: inherit;
+			color: inherit;
+			margin: 0 0 $gap-size 0;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+
+		+ .text{
+			margin: 0;
+		}
+
+		+ time, + .tags {
+			margin-top: -($gap-size * 1);
+		}
+	}
+
+	time, .tags {
+		@extend .#{$prefix}type-primary-normal;
+		@extend .#{$prefix}color-dark-medium;
+		display:block;
+		font-weight: 400;
+		margin: 0;
+		padding: 0 0 4px 0;
+
+		span {
+			font-size: 24px;
+			vertical-align: middle;
+			float: left;
+
+		}
+
+		+ .tags {
+			padding-bottom: 0;
+		}
+	}
+
+	.text {
+		@extend .#{$prefix}type-primary-paragraph;
+		@extend .#{$prefix}color-dark-medium;
+		margin: ($gap-size * 1.5) 0 0 0;
+
+		&:first-child {
+			margin: 0;
+		}
+
+		@include respond(tablet-landscape) {
+			padding: 0 ($gap-size * 3);
+		}
+
+		.title {
+			@extend .#{$prefix}type-secondary-quote;
+		}
+
+		p {
+			font: inherit;
+			color: inherit;
+			margin: 0 0 ($gap-size * 1.5) 0;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+
+		strong {
+			font-weight: 500;
+		}
+
+		h2 {
+			@extend .#{$prefix}type-primary-header;
+			@extend .#{$prefix}color-dark-medium;
+			line-height: 38px;
+			font-weight: 400;
+			margin: 0 0 ($gap-size * 1.5) 0;
+		}
+
+		h3 {
+			@extend .#{$prefix}type-primary-header;
+			@extend .#{$prefix}color-primary;
+			line-height: 27px;
+			font-weight: 500;
+			margin: 0 0 ($gap-size * .75) 0;
+		}
+
+		blockquote {
+			@extend .#{$prefix}type-secondary-quote;
+			@extend .#{$prefix}color-highlight;
+			padding: 0;
+			margin: 0;
+			border: 0;
+
+			@include respond(tablet-landscape) {
+				padding: ($gap-size * 1) ($gap-size * 3) ($gap-size * 2.5) ($gap-size * 3);
+			}
+		}
+
+		iframe {
+			display: block;
+			margin: 0 auto;
+			max-width: 100%;
+
+			&:only-child{
+				width: 100%;
+			}
+		}
+
+		.label {
+			border-bottom: 1px solid swatch-color(primary, default);
+			margin-bottom: 5px;
+
+			&::after{
+				content: '';
+				display: block;
+				clear: both;
+			}
+
+			div{
+				@extend .#{$prefix}type-primary-normal;
+				@extend .#{$prefix}background-primary;
+				font-weight: 700;
+				float: left;
+				border-radius: 4px 4px 0 0; 
+				padding: 2px 10px; 
+				color: #fff;
+			}
+		}
+
+		td {
+			display: block;
+
+			@include respond(tablet-landscape) {
+				display: table-cell;
+			}
+
+			img {
+				min-width: 175px;
+			}
+		}
+	}
+}

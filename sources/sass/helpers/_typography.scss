@@ -1,0 +1,75 @@
+// --------------------
+// Styles to use in @include
+// --------------------
+@mixin font-type($name : default, $size : medium) {
+    $style : map_get($font-types, $name);
+    $sizes : map_get($style, 'sizes');
+    $styles : map_get($sizes, $size);
+    font-family : map_get($style, 'font-family');
+
+    @each $key, $value in $styles
+    {
+        #{$key} : $value;
+    }
+}
+
+@mixin font-import($font, $filename, $font-weight : 400, $font-style : normal) {
+    @font-face
+    {
+        font-family : $font;
+        src: url('../fonts/#{$filename}.eot');
+        src: url('../fonts/#{$filename}.eot?#iefix') format('embedded-opentype'),
+             url('../fonts/#{$filename}.woff2') format('woff2'),
+             url('../fonts/#{$filename}.woff') format('woff'),
+             url('../fonts/#{$filename}.ttf') format('truetype');
+        font-style  : $font-style;
+        font-weight : $font-weight;
+    }
+}
+
+// --------------------
+// Styles to use in @extend
+// --------------------
+@each $name, $styles in $font-types
+{
+    @each $size, $style in map_get($styles, 'sizes')
+    {
+        .#{$prefix}type-#{$name}-#{$size}
+        {
+            @include font-type($name, $size);
+        }
+    }
+}
+
+// --------------------
+// Import fonts
+// --------------------
+@each $font, $settings in $font-import
+{
+    @each $name, $format in $settings
+    {
+        @include font-import($font, #{$font}-#{$name}, map_get($format, 'weight'), map_get($format, 'style'));
+    }
+}
+
+// --------------------
+// Style mapping
+// --------------------
+@each $element, $style in $font-mapping
+{
+    #{$element}
+    {
+        @include style($style);
+    }
+}
+
+// --------------------
+// Weight mapping
+// --------------------
+@each $weight, $name in (100 : hairline, 200 : thin, 300 : light, 400 : regular, 500 : medium, 600 : semi-bold, 700 : bold, 800 : heavy, 900 : black)
+{
+    .weight-#{$name}
+    {
+        font-weight: $weight;
+    }
+}

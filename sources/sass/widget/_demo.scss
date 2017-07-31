@@ -1,0 +1,121 @@
+// --------------------
+// Demo
+// --------------------
+.#{$prefix}demo {
+	display: block;
+	padding: 0;
+	margin: 0 0 48px 0;
+	position: relative;
+	z-index: 1;
+	cursor: default;
+
+	> div {
+		@extend .clear-fix;
+		position: relative;
+		padding: 0;
+		box-sizing: border-box;
+
+		.panel-grid-cell:first-child & {
+			@include respond(tablet-landscape) {
+				max-width: $max-width / 2;
+				margin-left: auto;
+			}
+		}
+
+		.panel-grid-cell:last-child & {
+			@include respond(tablet-landscape) {
+				max-width: $max-width / 2;
+				margin-right: auto;
+			}
+		}
+
+		.panel-grid-cell:only-child & {
+			max-width: $max-width;
+			margin: 0 auto;
+		}
+	}
+
+	.title {
+		@extend .#{$prefix}type-secondary-quoteLarge;
+		@extend .#{$prefix}color-light;
+		background-color: swatch-color(highlight, light, .75);
+		padding: 32px 48px;
+		position: relative;
+		z-index: 2;
+
+		@include respond(tablet-landscape) {
+			float: right;
+			width: (100% * 9/18);
+		}
+
+		p {
+			font: inherit;
+			color: inherit;
+			margin: 0 0 $gap-size 0;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+
+		&.video{ 
+			padding: 0;
+
+			p {
+				display: block;
+				padding: (100% * 9/16) 0 0 0;
+				margin: 0;
+				position: relative;
+				
+				iframe {
+					@include position_top_left(absolute, 0, 0, 100%, 100%);
+					border: 0;
+				}
+			}
+		}
+	}
+
+	.text {
+		@extend .#{$prefix}background-light;
+		@extend .#{$prefix}type-primary-paragraph;
+		@extend .#{$prefix}color-dark-medium;
+		padding: 48px;
+		z-index: 1;
+
+		@include respond(tablet-landscape) {
+			@include position_bottom_left(absolute, 0, 0, auto, auto);
+			width: (100% * 14/18);
+			padding-right: (100% * 6/18);
+		}
+	}
+
+	.more {
+		@include align-vertical(64px, $position : middle);
+		@extend .#{$prefix}background-highlight;
+		@extend .#{$prefix}type-primary-normal;
+		@extend .#{$prefix}color-light;
+		position: relative;
+		padding: 0 0 0 24px;
+		box-sizing: border-box;
+		transition: 1s ease 0s;
+		z-index: 2;
+
+		@include respond(tablet-landscape) {
+			float: right;
+			clear: both;
+			min-width: (100% * 4/18);
+		}
+
+		span {
+			@extend .#{$prefix}color-light;
+			display: inline-block;
+			width: 64px;
+			height: 64px;
+			line-height: 64px;
+			font-size: 25px;
+			margin-left: 20px;
+			vertical-align: middle;
+			text-align: center;
+		}
+	}
+}

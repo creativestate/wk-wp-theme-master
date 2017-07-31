@@ -1,0 +1,135 @@
+// --------------------
+// Footer
+// --------------------
+.#{$prefix}search-result {
+
+	> div {
+		position: relative;
+		padding: 48px 0;
+		box-sizing: border-box;
+
+		@include respond(tablet-landscape) {
+			max-width: $max-width;
+			margin: 0 auto;
+		}
+	}
+
+	.items {
+		margin: 0 0 0 auto;
+	}
+
+	.item {
+		@extend .clear-fix;
+		@extend .#{$prefix}background-light;
+		display: block;
+		display: block;
+		margin: 0 0 12px 0;
+		padding: 48px 48px 64px 48px;
+		cursor: default;
+		position: relative;
+
+		.image {
+			padding: 0 0 48px 0;
+			box-sizing: border-box;
+
+			@include respond(tablet-landscape) {
+				padding: 0 48px 0 0;
+				float: left;
+				width: 27%;
+
+				+ .text {
+					float: left;
+					width: 73%;
+				}
+			}
+
+			img {
+				display: block;
+				max-width: 100%;
+				margin: 0 auto;
+				height: auto;
+				border: 0;
+			}
+
+			a {
+				border: 0;
+				display: block;
+			}
+		}
+
+		.text {
+			box-sizing: border-box;
+		}
+
+		.title {
+			@extend .#{$prefix}type-primary-header;
+			@extend .#{$prefix}color-dark-medium;
+			margin: 0 0 $gap-size 0;
+			padding: 0;
+
+			a {
+				@extend .#{$prefix}color-primary-dark;
+				border: 0;
+			}
+
+			+.body {
+				margin-top: 0;
+			}
+		}
+
+		time, .tags {
+			@extend .#{$prefix}type-primary-normal;
+			@extend .#{$prefix}color-dark-medium;
+			display:block;
+			font-weight: 400;
+			margin: 0;
+			padding: 0 0 4px 0;
+
+			span {
+				font-size: 24px;
+				vertical-align: middle;
+				float: left;
+
+			}
+
+			+ .tags {
+				padding-bottom: 0;
+			}
+		}
+
+		.body {
+			@extend .#{$prefix}type-primary-paragraph;
+			@extend .#{$prefix}color-dark-medium;
+			margin: $gap-size 0 $gap-size 0;
+		}
+
+		.more {
+			@extend .#{$prefix}type-primary-paragraph;
+			@extend .#{$prefix}color-dark-medium;
+			@include position_bottom_right(absolute, 0, 0, auto, 64px);
+			@include align-vertical(64px, $position : middle);
+			font-weight: 400;
+			padding: 0 0 0 24px;
+			box-sizing: border-box;
+			transition: opacity .3s ease 0s;
+			opacity: .7;
+
+			span {
+				@extend .#{$prefix}background-dark-medium;
+				@extend .#{$prefix}color-light;
+				float: right;
+				width: 64px;
+				height: 64px;
+				line-height: 64px;
+				font-size: 25px;
+				margin-left: 20px;
+				vertical-align: middle;
+				text-align: center;
+			}
+
+			&:hover, &:active, &:focus {
+				opacity: 1;
+			}
+		}
+	}
+}

@@ -1,0 +1,78 @@
+// --------------------
+// Navbar
+// --------------------
+.#{$prefix}navbar {
+	transition: background-color .1s ease-out;
+
+	.wk-navbar-container {
+		transition: background-color .1s ease-out;
+	}
+
+	&.hover {
+		@extend .#{$prefix}background-primary-medium-dark;
+
+		.wk-navbar-container {
+			@extend .#{$prefix}background-primary-medium-dark;
+
+			ul.wk-nav>li>a {
+				@extend .#{$prefix}background-primary-medium-dark;
+			}
+
+			ul.wk-nav>li.hover{
+				>a {
+					@extend .#{$prefix}background-primary;
+				}
+
+				.sub-menu {
+					opacity: 1;
+					max-height: 400px;
+					visibility: visible;
+				}
+			}
+		}
+	}
+
+	.sub-menu {
+		@extend .#{$prefix}background-primary;
+		opacity: 1;
+		max-height: 0;
+		overflow: hidden;
+		visibility: hidden;
+		transition: .3s ease-out;
+
+		@include respond(tablet-portrait) {
+			@include position_top_left(absolute, 0, 100%, 100%, auto);
+		}
+
+		ul {
+			@extend .clear-fix;
+			position: relative;
+			padding: ($gap-size * .5) 0;
+			box-sizing: border-box;
+			list-style: none;
+
+			@include respond(tablet-landscape) {
+				max-width: $max-width;
+				margin: 0 auto;
+			}
+
+			@include respond(tablet-portrait){
+				padding: ($gap-size * 1.5) 0;
+				column-count: 4;
+				column-gap: ($gap-size * 2.5);
+			} 
+
+			li {
+				a {
+					@extend .#{$prefix}color-light;
+					line-height: 32px;
+					padding: 0 15px;
+
+					&:hover, &:active, &:focus {
+						text-decoration: underline;
+					}
+				}
+			}
+		}
+	}
+}

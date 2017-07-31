@@ -1,0 +1,17 @@
+// --------------------
+// Styles to use in @include
+// --------------------
+@mixin style($map) {
+    $available-extends : (color, background, border, type);
+
+    @each $type, $value in $map
+    {
+        @if index($available-extends, $type) != null
+        {
+            @extend .#{$prefix}#{$type}-#{$value};
+        } @else
+        {
+            #{$type} : $value;
+        }
+    }
+}

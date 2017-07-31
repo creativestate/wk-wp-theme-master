@@ -1,0 +1,149 @@
+// --------------------
+// Recent News
+// --------------------
+.#{$prefix}promobox {
+	display: block;
+	margin: 0 0 48px 0;
+	padding: 0;
+	cursor: default;
+
+	&.large {
+		> div {
+			@include respond(tablet-landscape) {
+				min-height: 380px;
+			}
+		}
+
+		.image {
+			padding: 48px 48px 0 0;
+		}
+	}
+
+	&.link {
+		>div {
+			padding-bottom: 64px;
+		}
+	}
+
+	> div {
+		@extend .#{$prefix}background-light;
+		@extend .clear-fix;
+		position: relative;
+		padding: 64px 48px 24px 48px;
+		box-sizing: border-box;
+
+		@include respond(tablet-landscape) {
+			min-height: 200px;
+		}
+
+		.panel-grid-cell:first-child & {
+			@include respond(tablet-landscape) {
+				max-width: ($max-width / 2) - 64px;
+				margin-left: auto;
+			}
+		}
+
+		.panel-grid-cell:last-child & {
+			@include respond(tablet-landscape) {
+				max-width: ($max-width / 2) - 64px;
+				margin-left: 64px;
+				margin-right: auto;
+			}
+		}
+
+		.panel-grid-cell:only-child & {
+			max-width: $max-width;
+			margin-left: auto;
+			margin-right: auto;
+		}
+	}
+
+	.label {
+		@extend .#{$prefix}type-secondary-quote;
+		@extend .#{$prefix}color-light;
+		height: 64px;
+		line-height: 64px;
+		padding: 0 48px;
+		margin: -64px -48px 24px -48px;
+		box-sizing: border-box;
+		display: block;
+
+		@include respond(tablet-landscape) {
+			@include position_top_left(absolute, -64px, 0, auto, 64px);
+			margin: 0;
+			min-width: 256px;
+		}
+	}
+
+	.image {
+		float: left;
+		width: 36%;
+		padding: 24px 48px 0 0;
+		box-sizing: border-box;
+
+		img {
+			display: block;
+			max-width: 100%;
+			height: auto;
+			border: 0;
+		}
+	}
+
+	.text {
+		float: right;
+		width: 64%;
+		box-sizing: border-box;
+	}
+
+	.title {
+		@extend .#{$prefix}type-primary-header;
+		@extend .#{$prefix}color-dark-medium;
+		margin: 0 0 24px 0;
+		padding: 0;
+		
+		a {
+			font: inherit;
+			color: inherit;
+		}
+	}
+
+	.body {
+		@extend .#{$prefix}type-primary-paragraph;
+		@extend .#{$prefix}color-dark-medium;
+		margin: 0 0 24px 0;
+	}
+
+	.price {
+		@extend .#{$prefix}type-primary-price;
+		@extend .#{$prefix}color-highlight;
+	}
+
+	.more {
+		@extend .#{$prefix}type-primary-paragraph;
+		@extend .#{$prefix}color-dark-medium;
+		@include position_bottom_right(absolute !important, 0, 0, auto, 64px);
+		@include align-vertical(64px, $position : middle);
+		font-weight: 400;
+		padding: 0 0 0 24px;
+		box-sizing: border-box;
+		transition: opacity .3s ease 0s;
+		opacity: .7;
+
+		span {
+			@extend .#{$prefix}background-dark-medium;
+			@extend .#{$prefix}color-light;
+			float: right;
+			width: 64px;
+			height: 64px;
+			line-height: 64px;
+			font-size: 25px;
+			margin-left: 20px;
+			vertical-align: middle;
+			text-align: center;
+		}
+
+		&:hover, &:active, &:focus {
+			opacity: 1;
+		}
+	}
+}

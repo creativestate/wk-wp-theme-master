@@ -1,0 +1,128 @@
+// --------------------
+// Business Units
+// --------------------
+.#{$prefix}business-units {
+	@extend .#{$prefix}background-light;
+	display: block;
+	padding: 0;
+	margin: 0 0 48px 0;
+	cursor: default;
+
+	>div {
+		max-width: $max-width;
+		margin: 0 auto;
+		padding: 24px 0 0 0;
+	}
+
+	h1 {
+		@extend .#{$prefix}type-secondary-quote;
+		@extend .#{$prefix}color-dark-medium;
+		margin: 0 16px 0 32px;
+		padding: 32px 0 24px 0;
+
+		@include respond(tablet-landscape) {
+			padding-top: 0;
+		}
+	}
+
+	.items {
+		@extend .clear-fix;
+
+		&.count-3{
+			.item{
+				@include respond(tablet-landscape) {
+					width: (100% / 3);
+					width: calc((100% - 128px) / 3);
+				}
+			}
+		}
+
+		&.count-4{
+			.item{
+				@include respond(tablet-landscape) {
+					margin: 0 16px 0 0;
+					width: 25%;
+					width: calc((100% - 48px) / 4);
+				}
+			}
+		}
+
+		.item {
+			padding: 0;
+			margin: 0 16px;
+			box-sizing: border-box;
+
+			@include respond(tablet-landscape) {
+				float: left;
+				margin: 0 64px 0 0;
+
+				&:last-child {
+					margin-right: 0;
+				}
+			}
+
+			.icon {
+				@extend .#{$prefix}color-light;
+				display: block;
+				width: 64px;
+				height: 64px;
+				margin: 0 0 -16px 32px;
+				font-size: 32px;
+				line-height: 64px;
+				text-align: center;
+				box-sizing: border-box;
+				position: relative;
+
+				&:before {
+					@include position_top_left(absolute, 0, 0, 100%, 100%);
+					@extend .#{$prefix}background-light;
+					content: '';
+					opacity: 0.25;
+				}
+			}
+
+			h2{
+				display: block;
+				@extend .#{$prefix}type-primary-header;
+				@extend .#{$prefix}color-light;
+				height: 64px;
+				padding: 24px 32px 8px 32px;
+				margin: 0;
+				box-sizing: border-box;
+			}
+
+			p {
+				@extend .#{$prefix}type-primary-paragraph;
+				@extend .#{$prefix}color-dark-medium;
+				padding: 24px 32px 8px 32px;
+				margin: 0;
+			}
+
+			h3 {
+				@extend .#{$prefix}type-primary-header;
+				@extend .#{$prefix}color-dark-medium;
+				font-weight: 300;
+				padding: 0 32px 8px 32px;
+				opacity: .7;
+			}
+
+			ul {
+				padding: 0 32px 32px 32px;
+				margin: 0;
+
+				a {
+					@extend .#{$prefix}type-primary-link;
+					@extend .#{$prefix}color-dark-medium;
+					padding: 0;
+
+					&:before {
+						content: '\e804';
+						font-family: 'wk-icons';
+						font-weight: 400;
+						margin: 0 5px 0 -2px;
+					}
+				}
+			}
+		}
+	}
+}

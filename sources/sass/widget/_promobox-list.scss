@@ -1,0 +1,180 @@
+// --------------------
+// Promo Box
+// --------------------
+.#{$prefix}promobox-list {
+	@extend .#{$prefix}background-light;
+	display: block;
+	margin: 0 0 48px 0;
+	padding: 0;
+	cursor: default;
+
+	> div {
+		@extend .clear-fix;
+		position: relative;
+		padding: 64px 0 0 0;
+		box-sizing: border-box;
+
+		.panel-grid-cell:first-child & {
+			@include respond(tablet-landscape) {
+				max-width: ($max-width / 2) - 64px;
+				margin-left: auto;
+			}
+		}
+
+		.panel-grid-cell:last-child & {
+			@include respond(tablet-landscape) {
+				max-width: ($max-width / 2) - 64px;
+				margin-left: 64px;
+				margin-right: auto;
+			}
+		}
+
+		.panel-grid-cell:only-child & {
+			max-width: $max-width;
+			margin-left: auto;
+			margin-right: auto;
+		}
+	}
+
+	.label {
+		@extend .#{$prefix}type-secondary-quote;
+		@extend .#{$prefix}color-light;
+		height: 64px;
+		line-height: 64px;
+		padding: 0 48px;
+		margin: -64px 0 0 0;
+		box-sizing: border-box;
+		display: block;
+
+		@include respond(tablet-landscape) {
+			max-width: 100%;
+			float: left;
+			margin-bottom: 24px;
+		}
+	}
+
+	.items {
+		@extend .clear-fix;
+		clear: both;
+
+		&.three{
+			.item{
+				@include respond(tablet-landscape) {
+					width: 30%;
+					width: calc((100% - 96px) / 3);
+
+					&:nth-child(3n + 3) {
+						margin-right: 0;
+					}
+
+					&:nth-child(3n + 4) {
+						clear: left;
+					}
+
+					&:nth-child(1n + 4) {
+						padding-top: 64px;
+					}
+				}
+			}
+		}
+
+		&.four{
+			.item{
+				@include respond(tablet-landscape) {
+					width: 22%;
+					width: calc((100% - 144px) / 4);
+
+					&:nth-child(4n + 4) {
+						margin-right: 0;
+					}
+
+					&:nth-child(4n + 5) {
+						clear: left;
+					}
+
+					&:nth-child(1n + 5) {
+						padding-top: 64px;
+					}
+				}
+			}
+		}
+
+		.item {
+			padding: 24px 24px 64px 24px;
+			margin: 0;
+			box-sizing: border-box;
+			position: relative;
+
+			@include respond(tablet-landscape) {
+				float: left;
+				padding: 0 48px 64px 0;
+				margin: 0 48px 0 0;
+			}
+		}
+	}
+
+	.image {
+		@include background-image-size(contain, center bottom);
+		display: block;
+		margin: 0 0 48px 0;
+		height: 250px;
+		box-sizing: border-box;
+	}
+
+	.text {
+		display: block;
+		box-sizing: border-box;
+	}
+
+	.title {
+		@extend .#{$prefix}type-primary-header;
+		@extend .#{$prefix}color-primary-dark;
+		margin: 0 0 24px 0;
+		padding: 0;
+		
+		a {
+			font: inherit;
+			color: inherit;
+		}
+	}
+
+	.body {
+		@extend .#{$prefix}type-primary-paragraph;
+		@extend .#{$prefix}color-dark-medium;
+		margin: 0 0 24px 0;
+	}
+
+	.price {
+		@extend .#{$prefix}type-primary-price;
+		@extend .#{$prefix}color-primary;
+	}
+
+	.more {
+		@extend .#{$prefix}type-primary-paragraph;
+		@extend .#{$prefix}color-dark-medium;
+		@include position_bottom_right(absolute !important, 0, 0, auto, 64px);
+		@include align-vertical(64px, $position : middle);
+		font-weight: 400;
+		padding: 0 0 0 24px;
+		box-sizing: border-box;
+		transition: opacity .3s ease 0s;
+		opacity: .7;
+
+		span {
+			@extend .#{$prefix}background-dark-medium;
+			@extend .#{$prefix}color-light;
+			float: right;
+			width: 64px;
+			height: 64px;
+			line-height: 64px;
+			font-size: 25px;
+			margin-left: 20px;
+			vertical-align: middle;
+			text-align: center;
+		}
+
+		&:hover, &:active, &:focus {
+			opacity: 1;
+		}
+	}
+}

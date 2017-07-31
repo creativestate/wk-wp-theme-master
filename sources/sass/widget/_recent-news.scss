@@ -1,0 +1,94 @@
+// --------------------
+// Recent News
+// --------------------
+.#{$prefix}recent-news {
+	@extend .#{$prefix}background-light;
+	display: block;
+	margin: 0 0 48px 0;
+	padding: 0;
+	cursor: default;
+
+	>div {
+		position: relative;
+		padding: 24px 48px 64px 32px;
+		box-sizing: border-box;
+
+		.panel-grid-cell:first-child & {
+			@include respond(tablet-landscape) {
+				max-width: $max-width / 2;
+				margin-left: auto;
+			}
+		}
+
+		.panel-grid-cell:last-child & {
+			@include respond(tablet-landscape) {
+				max-width: $max-width / 2;
+				margin-right: auto;
+			}
+		}
+
+		.panel-grid-cell:only-child & {
+			max-width: $max-width;
+			margin-left: auto;
+			margin-right: auto;
+		}
+	}
+
+	h2 {
+		@extend .#{$prefix}type-primary-header;
+		@extend .#{$prefix}color-dark-medium;
+		font-weight: 300;
+		opacity: .7;
+		margin: 0 0 24px 0;
+		padding: 0;
+	}
+
+	ul{
+		padding: 0;
+		margin: 0;
+		list-style: none;
+
+		li{
+			padding: 0 0 24px 0;
+			margin: 0;
+
+			a {
+				@extend .#{$prefix}type-primary-link;
+				@extend .#{$prefix}color-dark-medium;
+				padding: 0;
+				display: block;
+			}
+
+			span{
+				@extend .#{$prefix}type-primary-paragraph;
+				@extend .#{$prefix}color-dark-medium;
+				opacity: .7;
+				display: block;
+			}
+		}
+	}
+
+	.more {
+		@extend .#{$prefix}type-primary-normal;
+		@extend .#{$prefix}color-dark-medium;
+		@include position_bottom_right(absolute !important, 0, 0, auto, 64px);
+		@include align-vertical(64px, $position : middle);
+		padding: 0 0 0 24px;
+		box-sizing: border-box;
+		transition: 1s ease 0s;
+
+		span {
+			@extend .#{$prefix}background-dark-medium;
+			@extend .#{$prefix}color-light;
+			display: inline-block;
+			width: 64px;
+			height: 64px;
+			line-height: 64px;
+			font-size: 25px;
+			margin-left: 20px;
+			vertical-align: middle;
+			text-align: center;
+			opacity: .7;
+		}
+	}
+}

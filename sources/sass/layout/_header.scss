@@ -1,0 +1,136 @@
+// --------------------
+// Footer
+// --------------------
+.#{$prefix}header {
+    position: relative;
+    z-index: 1000;
+
+	&.bg-clear {
+		background: transparent;
+
+		.wk-nav{
+			li.search{
+				a.wk-icon-search {
+					&:before {
+						@extend .#{$prefix}color-light;
+					}
+				}
+			} 
+
+			li.search-form {
+				input[type=text] {
+					border: 0;
+				}
+			}
+		} 
+	}
+
+	.wk-nav{
+		display: block;
+		margin-top: -53px;
+		background: none;
+
+		@include respond(tablet-landscape) {
+			float: right;
+			width: auto;
+			margin-top: 17px;
+		}
+
+		li.search{
+			float: right;
+			transition: 0.3s ease 0s;
+
+			@include respond(tablet-landscape) {
+				float: left;
+			}
+
+			a.wk-icon-search {
+				padding: 0 10px 0 0;
+
+				&:before {
+					font-weight: 900;
+					font-size: 32px;
+					margin: 0;
+				}
+			}
+
+			&.open{
+				opacity: 0;
+				visibility: hidden;
+
+				+ li.search-form {
+					width: 100%;
+					visibility: visible;
+					opacity: 1;
+					height: auto;
+					padding: 0 12px 12px 12px;
+
+					@include respond(tablet-landscape) {
+						width: 400px;
+						padding: 0;
+					}
+				}
+			}
+		} 
+
+		li.search-form {
+			clear: both;
+			width: 0;
+			height: 0;
+			overflow: hidden;
+			opacity: 0;
+			visibility: hidden;
+			transition: 0.3s ease 0s;
+			padding: 0;
+
+			@include respond(tablet-landscape) {
+				clear: none;
+				height: auto;
+			}
+
+			form {
+				@extend .#{$prefix}background-light;
+				font-size: 0;
+				word-wrap: nowrap;
+				padding: 0 110px 0 0;
+				width: 100%;
+				position: relative;
+			}
+
+			input[type=text] {
+				@extend .#{$prefix}type-primary-paragraph;
+				@extend .#{$prefix}color-primary-dark;
+				@extend .#{$prefix}background-light;
+				border: 1px solid swatch-color(dark, medium, .25);
+				box-sizing: border-box;
+				line-height: 48px;
+				height: 48px;
+				display: inline-block;
+				padding: 0 ($gap-size * 1);
+				width: 100%;
+
+				&:focus {
+					box-shadow: none;
+					outline: none;
+				}
+			}
+
+			button[type=submit] {
+				@extend .#{$prefix}type-primary-normal;
+				@extend .#{$prefix}color-light;
+				@extend .#{$prefix}background-highlight;
+				@include position_top_right(absolute, 0, 0, 110px, 48px);
+				display: inline-block;
+				padding: 0;
+				text-align: center;
+				box-sizing: border-box;
+				line-height: 48px;
+				border: 0;
+
+				&:hover {
+					background: swatch-color(highlight, default, 0.5);
+				}
+			}
+		}
+	} 
+}

@@ -1,0 +1,56 @@
+// --------------------
+// functions
+// --------------------
+@function swatch-color($name : primary, $tint : default, $opacity : 1) {
+    $swatch : map_get($swatches, $name);
+    $color : map_get($swatch, $tint);
+
+    @if $opacity < 1
+    {
+        @return rgba($color, $opacity);
+    } @else
+    {
+        @return $color;
+    }
+}
+
+@function swatch-mix($name : primary, $tint1 : default, $tint2 : dark, $weight : 0.5, $opacity : 1) {
+    $swatch : map_get($swatches, $name);
+    $color1 : map_get($swatch, $tint1);
+    $color2 : map_get($swatch, $tint2);
+    $newColor : mix($color1, $color2, $weight);
+
+    @if $opacity < 1
+    {
+        @return rgba($newColor, $opacity);
+    } @else
+    {
+        @return $newColor;
+    }
+}
+
+// --------------------
+// Styles to use in @extend
+// --------------------
+$types : (color : color, background: background-color, border: border-color, fill: fill, stroke: stroke);
+
+@each $name, $swatch in $swatches
+{
+    @each $tint, $value in $swatch
+    {
+        $postfix : '';
+
+        @if $tint != default
+        {
+            $postfix : -#{$tint};
+        }
+
+        @each $key, $type in $types
+        {
+            .#{$prefix}#{$key}-#{$name}#{$postfix}
+            {
+                #{$type} : swatch-color($name, $tint);
+            }
+        }
+    }
+}

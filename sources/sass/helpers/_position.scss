@@ -1,0 +1,75 @@
+// --------------------
+// Styles to use in @include
+// --------------------
+@mixin position_top_left($type: absolute, $x : 0, $y : 0, $width : 100%, $height : auto) {
+    position : $type;
+    top      : $y;
+    left     : $x;
+    width    : $width;
+    height   : $height;
+}
+
+@mixin position_top_right($type: absolute, $x : 0, $y : 0, $width : 100%, $height : auto) {
+    position : $type;
+    top      : $y;
+    right     : $x;
+    width    : $width;
+    height   : $height;
+}
+
+@mixin position_bottom_left($type: absolute, $x : 0, $y : 0, $width : 100%, $height : auto) {
+    position : $type;
+    bottom   : $y;
+    left     : $x;
+    width    : $width;
+    height   : $height;
+}
+
+@mixin position_bottom_right($type: absolute, $x : 0, $y : 0, $width : 100%, $height : auto) {
+    position : $type;
+    bottom   : $y;
+    right    : $x;
+    width    : $width;
+    height   : $height;
+}
+
+@mixin align-vertical($height, $position : middle) {
+    display        : inline-block;
+    height         : $height;
+    box-sizing     : border-box;
+    vertical-align : $position;
+
+    &:before
+    {
+        content        : "";
+        display        : inline-block;
+        height         : 100%;
+        vertical-align : $position;
+    }
+}
+
+// --------------------
+// Styles to use in @extend
+// --------------------
+.clear-fix
+{
+    &:after
+    {
+        content : "";
+        clear   : both;
+        display : block;
+    }
+}
+
+.list-horizontal
+{
+    display    : block;
+    list-style : none;
+
+    > li
+    {
+        display : inline-block;
+        vertical-align: top;
+    }
+}
+

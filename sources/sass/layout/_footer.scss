@@ -1,0 +1,30 @@
+// --------------------
+// Footer
+// --------------------
+.#{$prefix}footer {
+	margin: 0;
+	
+	.#{$prefix}footer-copyright {
+		background: #f0f0f0;
+
+		.#{$prefix}footer-copyright-container {
+			padding-top: 11px;
+			padding-bottom: 11px;
+
+			.#{$prefix}nav {
+				display: inline-block;
+				vertical-align: top;
+				
+				>li a {
+					font-size: .82397rem;
+					color: #414141;
+				}
+			}
+			span {
+				padding: .75rem .9375rem;
+				line-height: 1.4;
+				display: inline-block;
+			}
+		}
+	}
+}

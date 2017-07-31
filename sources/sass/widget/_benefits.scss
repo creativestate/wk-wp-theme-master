@@ -1,0 +1,200 @@
+// --------------------
+// Benefits
+// --------------------
+.#{$prefix}benefits {
+	@include background-image-size(cover);
+	display: block;
+	padding: 0;
+	margin: 0 0 48px 0;
+	position: relative;
+	z-index: 1;
+	cursor: default;
+
+	.items {
+		@extend .clear-fix;
+		position: relative;
+		padding: 16px 16px 64px 16px;
+
+		.panel-grid-cell:first-child & {
+			@include respond(tablet-landscape) {
+				max-width: $max-width / 2;
+				margin-left: auto;
+			}
+		}
+
+		.panel-grid-cell:last-child & {
+			@include respond(tablet-landscape) {
+				max-width: $max-width / 2;
+				margin-right: auto;
+			}
+		}
+
+		.panel-grid-cell:only-child & {
+			max-width: $max-width;
+			margin-left: auto;
+			margin-right: auto;
+
+			@include respond(tablet-landscape) {
+				padding-top: 128px;
+			}
+		}
+
+		.item {
+			display: block;
+			position: relative;
+			padding: 24px 32px;
+			margin: 0 0 16px 0;
+
+			&:after {
+				content: '';
+				border: 32px solid transparent;
+			}
+
+			&:nth-child(2n + 1) {
+				background-color: swatch-color(primary, dark, 0.85);
+				margin-right: 64px;
+
+				&:after {
+					@include position_bottom_right(absolute, -64px, 0, 0, 0);
+					border-color: transparent;
+					border-left-color: swatch-color(primary, dark, 0.85);
+					border-bottom-color: swatch-color(primary, dark, 0.85);
+				}
+			}
+
+			&:nth-child(2n + 2) {
+				background-color: swatch-color(primary, default, 0.85);
+				margin-left: 64px;
+
+				&:after {
+					@include position_bottom_left(absolute, -64px, 0, 0, 0);
+					border-color: transparent;
+					border-right-color: swatch-color(primary, default, 0.85);
+					border-bottom-color: swatch-color(primary, default, 0.85);
+				}
+			}
+
+			@include respond(tablet-landscape) {
+				width: (100% * 5/18);
+				margin: 0 0 64px 0;
+
+				&:nth-child(2n + 1){
+					float: left;
+					clear: left;
+					margin-right: 64px;
+				}
+
+				&:nth-child(2n + 2){
+					float: right;
+					clear: right;
+					margin-left: 64px;
+				}
+
+				&:nth-child(4n + 1) {
+					background-color: swatch-color(primary, dark, 0.85);
+
+					&:after {
+						@include position_bottom_right(absolute, -64px, 0, 0, 0);
+						left: auto;
+						border-color: transparent;
+						border-left-color: swatch-color(primary, dark, 0.85);
+						border-bottom-color: swatch-color(primary, dark, 0.85);
+					}
+				}
+
+				&:nth-child(4n + 2) {
+					background-color: swatch-color(primary, default, 0.85);
+
+					&:after {
+						@include position_bottom_left(absolute, -64px, 0, 0, 0);
+						right: auto;
+						border-color: transparent;
+						border-right-color: swatch-color(primary, default, 0.85);
+						border-bottom-color: swatch-color(primary, default, 0.85);
+					}
+				}
+
+				&:nth-child(4n + 3) {
+					background-color: swatch-color(primary, default, 0.85);
+
+					&:after {
+						@include position_top_right(absolute, -64px, 0, 0, 0);
+						left: auto;
+						bottom: auto;
+						border-color: transparent;
+						border-left-color: swatch-color(primary, default, 0.85);
+						border-top-color: swatch-color(primary, default, 0.85);
+					}
+				}
+
+				&:nth-child(4n + 4) {
+					background-color: swatch-color(primary, dark, 0.85);
+
+					&:after {
+						@include position_top_left(absolute, -64px, 0, 0, 0);
+						right: auto;
+						bottom: auto;
+						border-color: transparent;
+						border-right-color: swatch-color(primary, dark, 0.85);
+						border-top-color: swatch-color(primary, dark, 0.85);
+					}
+				}
+
+				&:nth-child(3):last-child{
+					float: none;
+					margin-left: auto;
+					margin-right: auto;
+
+					&:after {
+						@include position_top_left(absolute, 50%, -64px, 0, 0);
+						bottom: auto;
+						right: auto;
+						transform: translateX(-50%);
+						border-color: transparent;
+						border-bottom-color: swatch-color(primary, default, 0.85);
+					}
+				}
+			}
+
+			h2{
+				@extend .#{$prefix}type-primary-header;
+				@extend .#{$prefix}color-light;
+				font-style: italic;
+				display: block;
+				padding: 0 0 12px 0;
+				margin: 0;
+				box-sizing: border-box;
+			}
+
+			p {
+				@extend .#{$prefix}type-primary-paragraph;
+				@extend .#{$prefix}color-light;
+				padding: 0 0 12px 0;
+				margin: 0;
+			}
+		}
+	}
+
+	.more {
+		@include position_bottom_right(absolute, 0, 0, auto, 64px);
+		@include align-vertical(64px, $position : middle);
+		@extend .#{$prefix}background-primary;
+		@extend .#{$prefix}type-primary-normal;
+		@extend .#{$prefix}color-light;
+		padding: 0 0 0 24px;
+		box-sizing: border-box;
+		transition: 1s ease 0s;
+
+		span {
+			@extend .#{$prefix}color-light;
+			display: inline-block;
+			width: 64px;
+			height: 64px;
+			line-height: 64px;
+			font-size: 25px;
+			margin-left: 20px;
+			vertical-align: middle;
+			text-align: center;
+		}
+	}
+}

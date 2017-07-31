@@ -1,0 +1,9 @@
+// --------------------
+// Styles to use in @include
+// --------------------
+@mixin background-image-size($size : cover, $position : center center, $attachment : scroll) {
+    background-repeat     : no-repeat;
+    background-position   : $position;
+    background-size       : $size;
+    background-attachment : $attachment;
+}

@@ -1,0 +1,18 @@
+// --------------------
+// Styles to use in @include
+// --------------------
+@mixin respond($type: desktop) {
+	@if map-has-key($breakpoints, $type) {
+        @media only screen and (min-width: map_get($breakpoints, $type)) {
+            @content;
+        }
+    }
+}
+
+@mixin respond-max($type: desktop) {
+	@if map-has-key($breakpoints, $type) {
+        @media only screen and (max-width: map_get($breakpoints, $type)) {
+            @content;
+        }
+    }
+}

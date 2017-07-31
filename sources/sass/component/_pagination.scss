@@ -1,0 +1,13 @@
+// --------------------
+// Footer
+// --------------------
+.#{$prefix}pagination-bar {
+	@extend .#{$prefix}background-primary-medium;
+	text-align: center;
+
+	.#{$prefix}pagination {
+		float: none;
+		display: inline-block;
+		margin: 0 auto;
+	}
+}

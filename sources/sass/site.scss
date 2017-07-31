@@ -1,0 +1,114 @@
+// GLOBAL CONFIGURATION
+// --------------------
+// sections below are classified as global configuration, enough to alter the whole ui in one sweep
+// Add a prefix to all generated css classes, enabling you to include multiple configuration files like this file.
+$prefix : 'wk-';
+
+// SETTINGS
+// --------------------
+// the max width op page blocks
+$max-width: 1200px;
+
+// the gap unit size
+$gap-size: 20px;
+
+// the breakpoints
+$breakpoints: (
+	mobile-landscape: 480px,
+	tablet-portrait: 768px,
+	tablet-landscape: 996px,
+	desktop: 1200px,
+	desktop-large: 1440px
+);
+
+// SECTION SWATCHES
+// Swatch colors are defined by keys and sub-keys. You can add/remove/update any key/value freely.
+// The key names become css classes, for example: .color-primary, .background-primary-light, .border-primary-dark
+// Sub-keys can be added by any given name, the only required key is "primary" and sub-keys "default"
+$swatches : (
+    primary	  : (default: #007ac3, medium-dark: #00619C, dark: #261a62, medium: #a6d1ea, light: #007ac3),
+    secondary : (default: #85bc20),
+	highlight : (default: #e5202e, light: #ea8f00),
+    light     : (default: #FFFFFF, medium: #F0F0F0),
+    dark      : (default: #000000, medium: #474747)
+);
+
+// SECTION TYPOGRAPHY
+// Define which fonts to import. Make sure the fonts exists by their name, for example: public/fonts/Lato-regular.ttf .woff .eot
+// The font will be available by its name to use in css font-family, for example: font-family: Lato
+// 100 = hairline, 200 = thin, 300 = light, 400 = regular, 500 = medium, 600 = semi-bold, 700 = bold, 800 = heavy, 900 = black
+$font-import : ();
+
+// Define all the text styles used on the site.
+// The key names become css styles for example: .type-primary-small, .type-secondary-large
+$font-types: (
+    primary: (
+        font-family: ("Fira Sans", "Helvetica Neue", Helvetica, "Roboto", Arial, sans-serif),
+        sizes : (
+            normal:		(font-size: 16px, line-height: 23px, letter-spacing: normal, font-weight: 400, font-style: normal),
+            paragraph:	(font-size: 18px, line-height: 27px, letter-spacing: normal, font-weight: 300, font-style: normal),
+            link:		(font-size: 20px, line-height: 35px, letter-spacing: normal, font-weight: 300, font-style: normal),
+            header:		(font-size: 24px, line-height: 32px, letter-spacing: normal, font-weight: 400, font-style: normal),
+            price:		(font-size: 28px, line-height: 32px, letter-spacing: normal, font-weight: 400, font-style: normal),
+            quote:		(font-size: 42px, line-height: 36px, letter-spacing: normal, font-weight: 300, font-style: normal),
+         )
+    ),
+    secondary: (
+        font-family: ("franziska", "Helvetica Neue", Helvetica, "Roboto", Arial, sans-serif),
+        sizes : (
+            quote:		(font-size: 32px, line-height: 40px, letter-spacing: normal, font-weight: 400, font-style: italic),
+            quoteLarge: (font-size: 42px, line-height: 54px, letter-spacing: normal, font-weight: 400, font-style: italic),
+            title:		(font-size: 44px, line-height: 53px, letter-spacing: normal, font-weight: 400, font-style: italic)
+         )
+    ),
+    corporate-icon: (
+        font-family: (wolters-kluwer-corporate),
+        sizes : (
+            normal: (font-size: 1.375rem, line-height: normal, letter-spacing: normal, font-style: normal, font-weight: 400, font-variant: normal, text-transform: none),
+         )
+    )
+);
+
+// SECTION MAPPING
+// Define the default mapping on html elements
+$font-mapping: (
+//    h1          : (color: primary, type: secondary-large , margin: 0, padding: 0 0 20px 0, font-weight: 700),
+//    h2          : (color: primary, type: secondary-medium, margin: 0, padding: 0 0 20px 0, font-weight: 700),
+);
+
+// SECTION HELPERS
+@import 'helpers/_style';
+@import 'helpers/_swatches';
+@import 'helpers/_typography';
+@import 'helpers/_background';
+@import 'helpers/_position';
+@import 'helpers/_responsive';
+
+// CUSTOM CONFIGURATION
+// --------------------
+// sections below are classified as custom configuration, where you can configure on component level
+// you can add/remove/alter variables of every component freely
+
+// SECTION GENERIC
+$layout: (background: light-medium);
+@import 'layout/_layout';
+@import 'layout/_header';
+@import 'layout/_navbar';
+@import 'layout/_footer';
+
+@import 'component/_icons';
+@import 'component/_pagination';
+@import 'component/_comments';
+
+@import 'widget/_hero-carousel';
+@import 'widget/_business-units';
+@import 'widget/_recent-news';
+@import 'widget/_capabilities';
+@import 'widget/_testimonial';
+@import 'widget/_benefits';
+@import 'widget/_demo';
+@import 'widget/_promobox';
+@import 'widget/_promobox-list';
+@import 'widget/_content-text';
+
+@import 'page/_search-result';

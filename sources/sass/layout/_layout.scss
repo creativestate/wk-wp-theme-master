@@ -1,0 +1,48 @@
+// default layout styles
+html {
+    border  : 0;
+    margin  : 0;
+    padding : 0;
+	box-sizing: border-box;
+}
+
+body {
+    @extend html;
+    @extend .clear-fix;
+    @include style($layout);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.panel-grid-cell {
+	@include respond-max(tablet-landscape) {
+		float: none !important;
+		width: auto !important;
+	}
+}
+
+.post-title {
+	@extend .#{$prefix}background-light;
+	padding: ($gap-size * 1.5) 15px;
+	margin: 0;
+	display: block;
+
+	h1 {
+		@extend .#{$prefix}type-secondary-title;
+		@extend .#{$prefix}color-primary;
+		margin: 0;
+		padding: 0;
+		max-width: $max-width;
+		margin: 0 auto;
+	}
+
+	p {
+		font: inherit;
+		color: inherit;
+		margin: 0 0 $gap-size 0;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
